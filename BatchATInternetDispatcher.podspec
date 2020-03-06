@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.platforms = {
     "ios" => "8.0"
   }
+  s.swift_version = '5.0'
 
   s.requires_arc = true
   s.static_framework = true
