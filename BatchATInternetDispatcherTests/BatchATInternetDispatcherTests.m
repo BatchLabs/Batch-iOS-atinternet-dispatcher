@@ -1,17 +1,9 @@
-//
-//  BatchAtInternetDispatcherTests.m
-//  Batch-AtInternet-Dispatcher_Tests
-//
-//  Created by Elliot Gouy on 23/10/2019.
-//  Copyright © 2019 elliot. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import <OCMock.h>
+#import <OCMock/OCMock.h>
 #import <Tracker/Tracker-Swift.h>
 
-#import "BatchAtInternetDispatcher.h"
+#import "BatchATInternetDispatcher.h"
 #import "BatchPayloadDispatcherTests.h"
 #import "BatchCampaignTests.h"
 
@@ -23,7 +15,7 @@
 @property (nonatomic) Publishers *publishersMock;
 @property (nonatomic) id trackerMock;
 @property (nonatomic) id atInternetMock;
-@property (nonatomic) BatchAtInternetDispatcher *dispatcher;
+@property (nonatomic) BatchATInternetDispatcher *dispatcher;
 
 @end
 
@@ -49,7 +41,7 @@
     OCMStub([_trackerMock publishers]).andReturn(_publishersMock);
     OCMStub([_trackerMock screens]).andReturn(_screensMock);
     
-    _dispatcher = [BatchAtInternetDispatcher instance];
+    _dispatcher = [BatchATInternetDispatcher instance];
 }
 
 - (void)tearDown
@@ -83,7 +75,7 @@
     
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:@"[batch-default-campaign]"]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -106,7 +98,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test#xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -133,7 +125,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test#xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -159,7 +151,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test?xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -185,7 +177,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"batch://?xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -211,7 +203,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"batch://#xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -238,7 +230,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test?xtor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -266,7 +258,7 @@
         @"xtor": xtor,
     };
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -292,7 +284,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.trackingId = xtor;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -317,7 +309,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.isPositiveAction = false;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:@"[batch-default-campaign]"]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -340,7 +332,7 @@
     testPayload.trackingId = xtor;
     testPayload.deeplink = @"https://batch.com/test?xtor=AD-[fake]#xtor=CS8-[fake2]";
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -365,7 +357,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = @" \n              https://batch.com/test?xtor=AD-[fake]#xtor=CS8-[fake2]           \n";
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeNotificationOpen payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -389,7 +381,7 @@
     
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppShow andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingShow payload:testPayload];
     
     OCMVerify([_publishersMock add:@"[batch-default-campaign]"]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -411,7 +403,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.trackingId = xtor;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppShow andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingShow payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -436,7 +428,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test#XtOr=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppShow andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingShow payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -461,7 +453,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.deeplink = [NSString stringWithFormat:@"https://batch.com/test?XTor=%@", xtor];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppShow andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingShow payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -486,7 +478,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.trackingId = xtor;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppClick andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingClick payload:testPayload];
     
     OCMVerify([_publishersMock add:campaignExpected]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -511,7 +503,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.isPositiveAction = false;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppClick andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingClick payload:testPayload];
     
     OCMVerify([_publishersMock add:@"[batch-default-campaign]"]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -530,7 +522,7 @@
     
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppClick andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingClick payload:testPayload];
     
     OCMVerify([_publishersMock add:@"[batch-default-campaign]"]);
     OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
@@ -552,7 +544,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.isPositiveAction = false;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppClose andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingClose payload:testPayload];
     
     OCMVerify([_screensMock add:@"ClosedBatchInAppMessage"]);
     OCMVerify([_screenMock sendView]);
@@ -569,7 +561,7 @@
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     testPayload.isPositiveAction = false;
     
-    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeInAppAutoClose andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingAutoClose payload:testPayload];
     
     OCMVerify([_screensMock add:@"AutoClosedBatchInAppMessage"]);
     OCMVerify([_screenMock sendView]);
@@ -585,7 +577,7 @@
     
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
     
-    [self.dispatcher dispatchEventWithType:-654 andPayload:testPayload];
+    [self.dispatcher dispatchEventWithType:-654 payload:testPayload];
     
     OCMVerify([_screensMock add:@"UnknownBatchMessage"]);
     OCMVerify([_screenMock sendView]);

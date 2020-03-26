@@ -13,7 +13,42 @@
 		510537982412625600589FC6 /* BatchATInternetDispatcherCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 510537962412625600589FC6 /* BatchATInternetDispatcherCore.h */; };
 		5105379B241262B700589FC6 /* Batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5105379A241262B700589FC6 /* Batch.framework */; };
 		5105379F2412630900589FC6 /* Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5105379E2412630900589FC6 /* Tracker.framework */; };
+		62BD2DAF2428C52000C5A5DB /* BatchATInternetDispatcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51D530F4241260A7009E7531 /* BatchATInternetDispatcher.framework */; };
+		62BD2DC02428C5BD00C5A5DB /* BatchXtorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BD2DB72428C5BD00C5A5DB /* BatchXtorTests.m */; };
+		62BD2DC12428C5BD00C5A5DB /* BatchAtInternetDispatcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BD2DB82428C5BD00C5A5DB /* BatchAtInternetDispatcherTests.m */; };
+		62BD2DC32428C5BD00C5A5DB /* BatchPayloadDispatcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BD2DBB2428C5BD00C5A5DB /* BatchPayloadDispatcherTests.m */; };
+		62BD2DC42428C5BD00C5A5DB /* BatchCampaignTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BD2DBC2428C5BD00C5A5DB /* BatchCampaignTests.m */; };
+		62BD2DC62428C5C900C5A5DB /* Tests-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 62BD2DB62428C5BD00C5A5DB /* Tests-Prefix.pch */; };
+		62BD2DC72428C76D00C5A5DB /* Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5105379E2412630900589FC6 /* Tracker.framework */; };
+		62BD2DC82428C76F00C5A5DB /* Batch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5105379A241262B700589FC6 /* Batch.framework */; };
+		62BD2DCA2428C77E00C5A5DB /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BD2DC92428C77E00C5A5DB /* OCMock.framework */; };
+		62BD2DCC2428C87B00C5A5DB /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62BD2DC92428C77E00C5A5DB /* OCMock.framework */; };
+		62BD2DCD2428C88700C5A5DB /* Tracker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5105379E2412630900589FC6 /* Tracker.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62BD2DB02428C52000C5A5DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51D530EB241260A7009E7531 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51D530F3241260A7009E7531;
+			remoteInfo = BatchATInternetDispatcher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		62BD2DCB2428C87200C5A5DB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				62BD2DCD2428C88700C5A5DB /* Tracker.framework in CopyFiles */,
+				62BD2DCC2428C87B00C5A5DB /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5105378C241260D300589FC6 /* BatchXtor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatchXtor.m; path = Classes/BatchXtor.m; sourceTree = "<group>"; };
@@ -25,6 +60,17 @@
 		5105379A241262B700589FC6 /* Batch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Batch.framework; path = Carthage/Build/iOS/Batch.framework; sourceTree = "<group>"; };
 		5105379E2412630900589FC6 /* Tracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tracker.framework; path = Carthage/Build/iOS/Tracker.framework; sourceTree = "<group>"; };
 		51D530F4241260A7009E7531 /* BatchATInternetDispatcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BatchATInternetDispatcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BD2DAA2428C52000C5A5DB /* BatchATInternetDispatcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BatchATInternetDispatcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62BD2DB52428C5BD00C5A5DB /* BatchPayloadDispatcherTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchPayloadDispatcherTests.h; sourceTree = "<group>"; };
+		62BD2DB62428C5BD00C5A5DB /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		62BD2DB72428C5BD00C5A5DB /* BatchXtorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchXtorTests.m; sourceTree = "<group>"; };
+		62BD2DB82428C5BD00C5A5DB /* BatchAtInternetDispatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchAtInternetDispatcherTests.m; sourceTree = "<group>"; };
+		62BD2DB92428C5BD00C5A5DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62BD2DBA2428C5BD00C5A5DB /* BatchCampaignTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchCampaignTests.h; sourceTree = "<group>"; };
+		62BD2DBB2428C5BD00C5A5DB /* BatchPayloadDispatcherTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchPayloadDispatcherTests.m; sourceTree = "<group>"; };
+		62BD2DBC2428C5BD00C5A5DB /* BatchCampaignTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchCampaignTests.m; sourceTree = "<group>"; };
+		62BD2DBF2428C5BD00C5A5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		62BD2DC92428C77E00C5A5DB /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,12 +83,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62BD2DA72428C52000C5A5DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62BD2DCA2428C77E00C5A5DB /* OCMock.framework in Frameworks */,
+				62BD2DAF2428C52000C5A5DB /* BatchATInternetDispatcher.framework in Frameworks */,
+				62BD2DC72428C76D00C5A5DB /* Tracker.framework in Frameworks */,
+				62BD2DC82428C76F00C5A5DB /* Batch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		51053799241262B700589FC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62BD2DC92428C77E00C5A5DB /* OCMock.framework */,
 				5105379E2412630900589FC6 /* Tracker.framework */,
 				5105379A241262B700589FC6 /* Batch.framework */,
 			);
@@ -53,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				51D530F6241260A7009E7531 /* BatchATInternetDispatcher */,
+				62BD2DAB2428C52000C5A5DB /* BatchATInternetDispatcherTests */,
 				51D530F5241260A7009E7531 /* Products */,
 				51053799241262B700589FC6 /* Frameworks */,
 			);
@@ -62,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				51D530F4241260A7009E7531 /* BatchATInternetDispatcher.framework */,
+				62BD2DAA2428C52000C5A5DB /* BatchATInternetDispatcherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +137,30 @@
 				51053792241260D700589FC6 /* Info.plist */,
 			);
 			path = BatchATInternetDispatcher;
+			sourceTree = "<group>";
+		};
+		62BD2DAB2428C52000C5A5DB /* BatchATInternetDispatcherTests */ = {
+			isa = PBXGroup;
+			children = (
+				62BD2DB82428C5BD00C5A5DB /* BatchAtInternetDispatcherTests.m */,
+				62BD2DBA2428C5BD00C5A5DB /* BatchCampaignTests.h */,
+				62BD2DBC2428C5BD00C5A5DB /* BatchCampaignTests.m */,
+				62BD2DB52428C5BD00C5A5DB /* BatchPayloadDispatcherTests.h */,
+				62BD2DBB2428C5BD00C5A5DB /* BatchPayloadDispatcherTests.m */,
+				62BD2DB72428C5BD00C5A5DB /* BatchXtorTests.m */,
+				62BD2DBD2428C5BD00C5A5DB /* en.lproj */,
+				62BD2DB92428C5BD00C5A5DB /* Info.plist */,
+				62BD2DB62428C5BD00C5A5DB /* Tests-Prefix.pch */,
+			);
+			path = BatchATInternetDispatcherTests;
+			sourceTree = "<group>";
+		};
+		62BD2DBD2428C5BD00C5A5DB /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				62BD2DBE2428C5BD00C5A5DB /* InfoPlist.strings */,
+			);
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +196,25 @@
 			productReference = 51D530F4241260A7009E7531 /* BatchATInternetDispatcher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		62BD2DA92428C52000C5A5DB /* BatchATInternetDispatcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62BD2DB42428C52000C5A5DB /* Build configuration list for PBXNativeTarget "BatchATInternetDispatcherTests" */;
+			buildPhases = (
+				62BD2DA62428C52000C5A5DB /* Sources */,
+				62BD2DA72428C52000C5A5DB /* Frameworks */,
+				62BD2DA82428C52000C5A5DB /* Resources */,
+				62BD2DCB2428C87200C5A5DB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62BD2DB12428C52000C5A5DB /* PBXTargetDependency */,
+			);
+			name = BatchATInternetDispatcherTests;
+			productName = BatchATInternetDispatcherTests;
+			productReference = 62BD2DAA2428C52000C5A5DB /* BatchATInternetDispatcherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -122,6 +225,9 @@
 				ORGANIZATIONNAME = Batch;
 				TargetAttributes = {
 					51D530F3241260A7009E7531 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					62BD2DA92428C52000C5A5DB = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
@@ -140,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				51D530F3241260A7009E7531 /* BatchATInternetDispatcher */,
+				62BD2DA92428C52000C5A5DB /* BatchATInternetDispatcherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -149,6 +256,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62BD2DA82428C52000C5A5DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62BD2DC62428C5C900C5A5DB /* Tests-Prefix.pch in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +279,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62BD2DA62428C52000C5A5DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62BD2DC42428C5BD00C5A5DB /* BatchCampaignTests.m in Sources */,
+				62BD2DC32428C5BD00C5A5DB /* BatchPayloadDispatcherTests.m in Sources */,
+				62BD2DC12428C5BD00C5A5DB /* BatchAtInternetDispatcherTests.m in Sources */,
+				62BD2DC02428C5BD00C5A5DB /* BatchXtorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		62BD2DB12428C52000C5A5DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51D530F3241260A7009E7531 /* BatchATInternetDispatcher */;
+			targetProxy = 62BD2DB02428C52000C5A5DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		62BD2DBE2428C5BD00C5A5DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62BD2DBF2428C5BD00C5A5DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		51D530FA241260A7009E7531 /* Debug */ = {
@@ -341,6 +486,48 @@
 			};
 			name = Release;
 		};
+		62BD2DB22428C52000C5A5DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U5K2ETC2Y6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = BatchATInternetDispatcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.batch.ios.BatchATInternetDispatcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62BD2DB32428C52000C5A5DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U5K2ETC2Y6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = BatchATInternetDispatcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.batch.ios.BatchATInternetDispatcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -358,6 +545,15 @@
 			buildConfigurations = (
 				51D530FD241260A7009E7531 /* Debug */,
 				51D530FE241260A7009E7531 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62BD2DB42428C52000C5A5DB /* Build configuration list for PBXNativeTarget "BatchATInternetDispatcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62BD2DB22428C52000C5A5DB /* Debug */,
+				62BD2DB32428C52000C5A5DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

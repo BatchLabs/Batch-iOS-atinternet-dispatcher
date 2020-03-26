@@ -1,3 +1,7 @@
+[![Cocoapods](https://img.shields.io/cocoapods/v/BatchATInternetDispatcher)](https://cocoapods.org/pods/BatchATInternetDispatcher)
+[![Github Action](https://github.com/BatchLabs/Batch-iOS-atinternet-dispatcher/workflows/iOS%20CI/badge.svg)](https://github.com/BatchLabs/Batch-iOS-atinternet-dispatcher/actions?query=workflow%3A%22iOS+CI%22)
+[![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=BatchLabs_Batch-iOS-atinternet-dispatcher&metric=coverage)](https://sonarcloud.io/dashboard?id=BatchLabs_Batch-iOS-atinternet-dispatcher)
+
 Batch.com iOS AT Internet Event Dispatcher
 ==================
 
