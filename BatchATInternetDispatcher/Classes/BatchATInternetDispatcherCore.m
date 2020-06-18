@@ -12,6 +12,10 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 
 @implementation BatchATInternetDispatcher
 
++ (void)load {
+    [BatchEventDispatcher addDispatcher:[self instance]];
+}
+
 + (instancetype)instance
 {
     static BatchATInternetDispatcher *sharedInstance = nil;

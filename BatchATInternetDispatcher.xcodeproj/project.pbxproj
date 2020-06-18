@@ -24,6 +24,7 @@
 		62BD2DCA2428C77E00C5A5DB /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BD2DC92428C77E00C5A5DB /* OCMock.framework */; };
 		62BD2DCC2428C87B00C5A5DB /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 62BD2DC92428C77E00C5A5DB /* OCMock.framework */; };
 		62BD2DCD2428C88700C5A5DB /* Tracker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5105379E2412630900589FC6 /* Tracker.framework */; };
+		62DC3D62249BC2490085BAE5 /* BatchATInternetDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 510537942412618E00589FC6 /* BatchATInternetDispatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,8 +171,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51053791241260D300589FC6 /* BatchXtor.h in Headers */,
+				62DC3D62249BC2490085BAE5 /* BatchATInternetDispatcher.h in Headers */,
 				510537982412625600589FC6 /* BatchATInternetDispatcherCore.h in Headers */,
+				51053791241260D300589FC6 /* BatchXtor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
