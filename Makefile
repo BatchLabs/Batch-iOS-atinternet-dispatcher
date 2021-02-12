@@ -34,6 +34,6 @@ test-sonar: clean
 		org.sonarsource.scanner.cli.Main
 
 carthage:
-	carthage bootstrap --platform ios
+	carthage bootstrap --platform ios --use-xcframeworks
 
 ci: carthage test-sonar
