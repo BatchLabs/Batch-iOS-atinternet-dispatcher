@@ -6,5 +6,5 @@ FOUNDATION_EXPORT double BatchATInternetDispatcherVersionNumber;
 //! Project version string for BatchATInternetDispatcher.
 FOUNDATION_EXPORT const unsigned char BatchATInternetDispatcherVersionString[];
 
-#import "BatchATInternetDispatcherCore.h"
-#import "BatchXtor.h"
+#import <BatchATInternetDispatcher/BatchATInternetDispatcherCore.h>
+#import <BatchATInternetDispatcher/BatchXtor.h>
