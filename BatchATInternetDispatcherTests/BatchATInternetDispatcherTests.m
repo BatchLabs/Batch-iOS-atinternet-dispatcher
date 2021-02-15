@@ -30,18 +30,12 @@
     _publisherMock = OCMClassMock([Publisher class]);
     _publishersMock = OCMClassMock([Publishers class]);
     _trackerMock = OCMClassMock([Tracker class]);
-    _atInternetMock = OCMClassMock([ATInternet class]);
-
-    OCMStub(ClassMethod([_atInternetMock sharedInstance])).andReturn(_atInternetMock);
-    
-    OCMStub([_atInternetMock defaultTracker]).andReturn(_trackerMock);
-    OCMStub([_atInternetMock tracker:@"batch-campaign-tracker"]).andReturn(_trackerMock);
-    OCMStub([_atInternetMock tracker:@"batch-publisher-tracker"]).andReturn(_trackerMock);
     
     OCMStub([_trackerMock publishers]).andReturn(_publishersMock);
     OCMStub([_trackerMock screens]).andReturn(_screensMock);
     
     _dispatcher = [BatchATInternetDispatcher instance];
+    _dispatcher.trackerOverride = _trackerMock;
 }
 
 - (void)tearDown
