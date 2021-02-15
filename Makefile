@@ -6,6 +6,9 @@ DERIVED_DATA=$(CURDIR)/DerivedData
 SONAR_HOME=$(CURDIR)/.sonar
 SONAR_WORKDIR=$(CURDIR)/.scannerwork/
 SONAR_URL=https://sonarcloud.io
+GITHUB_ACCESS_TOKEN=$(GITHUB_TOKEN)
+
+.PHONY: ci carthage clean
 
 clean:
 	rm -rf $(DERIVED_DATA) $(SONAR_WORKDIR)
