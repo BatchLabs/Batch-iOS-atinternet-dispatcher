@@ -13,6 +13,7 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 @implementation BatchATInternetDispatcher
 {
     NSMutableDictionary *_trackerCache;
+    Tracker *_trackerOverride;
 }
 
 + (void)load {
@@ -34,14 +35,35 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 {
     self = [super init];
     if (self) {
+        _trackerOverride = nil;
         _trackerCache = [NSMutableDictionary new];
     }
     return self;
 }
+
+- (Tracker *)trackerOverride
+{
+    return _trackerOverride;
+}
+
+- (void)setTrackerOverride:(Tracker *)trackerOverride
+{
+    _trackerOverride = trackerOverride;
+    if (trackerOverride != nil) {
+        @synchronized (_trackerCache) {
+            [_trackerCache removeAllObjects];
+        }
+    }
+}
+
 - (Tracker*)trackerNamed:(nonnull NSString*)name
 {
     if (name == nil) {
         return nil;
+    }
+    
+    if (_trackerOverride != nil) {
+        return _trackerOverride;
     }
     
     Tracker *cachedTracker = [_trackerCache objectForKey:name];
