@@ -11,6 +11,9 @@ NSString* const BatchAtInternetCampaignTracker = @"batch-campaign-tracker";
 NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 
 @implementation BatchATInternetDispatcher
+{
+    NSMutableDictionary *_trackerCache;
+}
 
 + (void)load {
     [BatchEventDispatcher addDispatcher:[self instance]];
@@ -27,6 +30,36 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
     return sharedInstance;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _trackerCache = [NSMutableDictionary new];
+    }
+    return self;
+}
+- (Tracker*)trackerNamed:(nonnull NSString*)name
+{
+    if (name == nil) {
+        return nil;
+    }
+    
+    Tracker *cachedTracker = [_trackerCache objectForKey:name];
+    
+    if (cachedTracker != nil) {
+        return cachedTracker;
+    }
+    
+    @synchronized (_trackerCache) {
+        cachedTracker = [[ATInternet sharedInstance] tracker:name];
+        if (cachedTracker != nil) {
+            [_trackerCache setObject:cachedTracker forKey:name];
+        }
+    }
+    
+    return cachedTracker;
+}
+
 - (void)dispatchEventWithType:(BatchEventDispatcherType)type payload:(nonnull id<BatchEventDispatcherPayload>)payload
 {
     NSString *eventName = [self stringFromEventType:type];
@@ -36,7 +69,7 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
         [self dispatchAsOnSiteAdsWithType:type payload:payload andXtor:xtorTag];
     }
     
-    Tracker *campaignTracker = [[ATInternet sharedInstance] tracker:BatchAtInternetCampaignTracker];
+    Tracker *campaignTracker = [self trackerNamed:BatchAtInternetCampaignTracker];
     Screen *screen = [campaignTracker.screens add:eventName];
     if (xtorTag != nil) {
         screen.campaign = [[Campaign alloc] initWithCampaignId:xtorTag];
@@ -46,7 +79,7 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 
 - (void)dispatchAsOnSiteAdsWithType:(BatchEventDispatcherType)type payload:(nonnull id<BatchEventDispatcherPayload>)payload andXtor:(nullable NSString*)xtorTag
 {
-    Tracker *publisherTracker = [[ATInternet sharedInstance] tracker:BatchAtInternetPublisherTracker];
+    Tracker *publisherTracker = [self trackerNamed:BatchAtInternetPublisherTracker];
     Publisher *publisher = nil;
     NSString *campaignId = nil;
     
