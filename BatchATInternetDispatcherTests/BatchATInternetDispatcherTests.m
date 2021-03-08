@@ -496,6 +496,7 @@
     OCMStub([_screensMock add:@"WebViewClickedBatchInAppMessage"]).andReturn(_screenMock);
     
     BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
+    testPayload.trackingId = xtor;
     testPayload.webViewAnalyticsIdentifier = webViewButtonId;
     
     [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingWebViewClick payload:testPayload];
