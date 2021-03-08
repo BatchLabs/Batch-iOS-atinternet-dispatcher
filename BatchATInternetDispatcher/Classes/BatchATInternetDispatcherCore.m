@@ -96,6 +96,11 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
     if (xtorTag != nil) {
         screen.campaign = [[Campaign alloc] initWithCampaignId:xtorTag];
     }
+    
+    if (payload.webViewAnalyticsIdentifier != nil) {
+        [[screen customVars] add:1 value:payload.webViewAnalyticsIdentifier type:CustomVarTypeScreen];
+    }
+    
     [screen sendView];
 }
 
@@ -125,9 +130,14 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
     }
     publisher.advertiserId = @"[batch]";
     
+    if (payload.webViewAnalyticsIdentifier != nil) {
+        publisher.variant = [NSString stringWithFormat:@"[%@]", payload.webViewAnalyticsIdentifier];
+    }
+    
     if ([self isImpression:type]) {
         [publisher sendImpression];
-    } else if ([self isClick:type] && payload.isPositiveAction) {
+    } else if ([self isClick:type] && (payload.isPositiveAction || type == BatchEventDispatcherTypeMessagingWebViewClick)) {
+        // We send the click if it's a positive action or if it's a click inside a WebView In-App
         [publisher sendTouch];
     }
     
@@ -195,7 +205,8 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
 - (BOOL)isClick:(BatchEventDispatcherType)type
 {
     return type == BatchEventDispatcherTypeNotificationOpen ||
-    type == BatchEventDispatcherTypeMessagingClick;
+    type == BatchEventDispatcherTypeMessagingClick ||
+    type == BatchEventDispatcherTypeMessagingWebViewClick;
 }
 
 -(NSDictionary*)dictFragment:(nonnull NSString*)fragment
@@ -219,12 +230,16 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
             return @"OpenedBatchPushNotification";
         case BatchEventDispatcherTypeMessagingShow:
             return @"ShowedBatchInAppMessage";
+        case BatchEventDispatcherTypeMessagingCloseError:
+            return @"ClosedErrorBatchInAppMessage";
         case BatchEventDispatcherTypeMessagingClose:
             return @"ClosedBatchInAppMessage";
         case BatchEventDispatcherTypeMessagingAutoClose:
             return @"AutoClosedBatchInAppMessage";
         case BatchEventDispatcherTypeMessagingClick:
             return @"ClickedBatchInAppMessage";
+        case BatchEventDispatcherTypeMessagingWebViewClick:
+            return @"WebViewClickedBatchInAppMessage";
         default:
             return @"UnknownBatchMessage";
     }

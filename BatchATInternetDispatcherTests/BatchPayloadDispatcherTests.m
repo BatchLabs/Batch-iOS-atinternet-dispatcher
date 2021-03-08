@@ -6,6 +6,7 @@
 
 @synthesize notificationUserInfo;
 @synthesize sourceMessage;
+@synthesize webViewAnalyticsIdentifier;
 
 - (nonnull instancetype)init
 {

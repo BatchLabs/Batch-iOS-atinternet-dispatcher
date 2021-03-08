@@ -3,6 +3,7 @@
 @interface BatchPayloadDispatcherTest : NSObject <BatchEventDispatcherPayload>
 
 @property (nullable) NSString *trackingId;
+@property (nullable) NSString *webViewAnalyticsIdentifier;
 @property (nullable) NSString *deeplink;
 @property BOOL isPositiveAction;
 @property (nullable) BatchInAppMessage *inAppPayload;
