@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BatchATInternetDispatcher'
-  s.version          = '1.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'Batch.com Events Dispatcher AT Internet implementation.'
 
   s.description      = <<-DESC

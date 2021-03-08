@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Upcoming
+## 1.1.0 
 
 - Added the ability to override the dispatcher's ATInternet tracker instance
 
