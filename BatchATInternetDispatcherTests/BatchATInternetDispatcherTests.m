@@ -486,6 +486,34 @@
     OCMVerify([_screenMock sendView]);
 }
 
+- (void)testInAppWebViewClickButtonId
+{
+    NSString *xtor = @"EPR-[mylabel]-totot-titi";
+    NSString *campaignExpected = @"[mylabel]";
+    NSString *webViewButtonId = @"jesuisunbouton";
+    
+    OCMStub([_publishersMock add:campaignExpected]).andReturn(_publisherMock);
+    OCMStub([_screensMock add:@"WebViewClickedBatchInAppMessage"]).andReturn(_screenMock);
+    
+    BatchPayloadDispatcherTest *testPayload = [[BatchPayloadDispatcherTest alloc] init];
+    testPayload.trackingId = xtor;
+    testPayload.webViewAnalyticsIdentifier = webViewButtonId;
+    
+    [self.dispatcher dispatchEventWithType:BatchEventDispatcherTypeMessagingWebViewClick payload:testPayload];
+    
+    OCMVerify([_publishersMock add:campaignExpected]);
+    OCMVerify([_publisherMock setAdvertiserId:@"[batch]"]);
+    OCMVerify([_publisherMock setFormat:@"[in-app]"]);
+    OCMVerify([_publisherMock setVariant:@"[jesuisunbouton]"]);
+    OCMVerify([_publisherMock sendTouch]);
+    
+    OCMVerify([_screensMock add:@"WebViewClickedBatchInAppMessage"]);
+    OCMVerify([_screenMock setCampaign:[OCMArg checkWithBlock:^BOOL(id value) {
+        return [xtor isEqualToString:((Campaign *)value).campaignId];
+    }]]);
+    OCMVerify([_screenMock sendView]);
+}
+
 - (void)testInAppClickNonPositive
 {
     OCMStub([_publishersMock add:@"[batch-default-campaign]"]).andReturn(_publisherMock);
