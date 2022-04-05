@@ -4,6 +4,9 @@
 #import "BatchATInternetDispatcherCore.h"
 #import "BatchXtor.h"
 
+#define DISPATCHER_NAME @"at_internet"
+#define DISPATCHER_VERSION 1
+
 NSString* const BatchAtInternetXtor = @"xtor";
 NSString* const BatchAtInternetDefaultCampaign = @"[batch-default-campaign]";
 
@@ -243,6 +246,16 @@ NSString* const BatchAtInternetPublisherTracker = @"batch-publisher-tracker";
         default:
             return @"UnknownBatchMessage";
     }
+}
+
+- (nonnull NSString*)name
+{
+    return DISPATCHER_NAME;
+}
+
+- (NSUInteger)version
+{
+    return DISPATCHER_VERSION;
 }
 
 @end

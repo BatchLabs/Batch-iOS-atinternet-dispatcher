@@ -16,9 +16,9 @@ More info about event dispatchers [here](https://doc.batch.com/ios/advanced/even
 You can find a guide explaining how to use the reported events [here](https://help.batch.com/en/articles/3597151-how-to-export-my-campaign-s-data-to-firebase-google-analytics-or-at-internet-using-events-dispatcher).
 
 # Requirements
- - Xcode 12
- - iOS 8+
- - Batch 1.17
+ - Xcode 13
+ - iOS 10+
+ - Batch 1.19
 
 # Installation
 
