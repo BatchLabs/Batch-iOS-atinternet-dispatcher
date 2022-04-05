@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Batch",
-        "repositoryURL": "https://github.com/BatchLabs/Batch-iOS-sdk",
-        "state": {
-          "branch": null,
-          "revision": "ebd47816923b04d2477ea3ea7817ab889d49db4b",
-          "version": "1.17.0"
-        }
+  "pins" : [
+    {
+      "identity" : "batch-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BatchLabs/Batch-iOS-sdk",
+      "state" : {
+        "revision" : "03d985539457918ecf1e191b69fd6d16538a6975",
+        "version" : "1.19.0"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

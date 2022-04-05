@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
   
   s.dependency 'ATInternet-Apple-SDK/Tracker', '>=2.0'
-  s.dependency 'Batch', '~> 1.17'
+  s.dependency 'Batch', '~> 1.19'
 
   s.source_files = 'BatchATInternetDispatcher/Classes/**/*'
 end
