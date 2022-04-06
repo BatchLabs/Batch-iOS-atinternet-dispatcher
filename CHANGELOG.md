@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.0
+
+- Bumps required Batch version to 1.19.0.
+
 ## 2.0.0
 
 - Add support for Batch's WebView In-App format. Bumps required Batch version to 1.17.0.
